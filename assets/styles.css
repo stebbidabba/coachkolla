@@ -441,6 +441,12 @@ img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 600px) {
   .curved-heading .h1 { font-size: 30px; }
   .curved-heading .h1.sub { font-size: 26px; }
+  .hero-left { padding: 88px 1rem 40px; }
+  .hero-dyn { margin: 0.75rem; padding: 1rem; border-radius: 16px; }
+  .hero-dyn .title { font-size: clamp(1.8rem, 8vw, 2.4rem); line-height: 1.1; }
+  .hero-dyn .subtitle { font-size: 1rem; line-height: 1.5; max-width: none; }
+  .hero-ctas { flex-direction: column; gap: 0.6rem; }
+  .hero-ctas .btn { width: 100%; }
 }
 
 /* Reserve space on the right side for side-nav on wide screens */
