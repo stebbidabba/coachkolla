@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600;700&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;600;700&family=Space+Grotesk:wght@600;700;800&family=Playfair+Display:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -41,7 +41,10 @@
             <a role="menuitem" class="nav-link" href="#programs">Prógrömm</a>
             <a role="menuitem" class="nav-link" href="#faq">FAQ</a>
             <a role="menuitem" class="nav-link" href="#contact">Hafa samband</a>
-            <a role="menuitem" class="nav-cta btn btn-primary" href="#contact">Skrá mig í fjarþjálfun</a>
+            <button type="button" class="theme-toggle" aria-label="Skipta um þema" aria-pressed="false">
+              <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            </button>
+            <a role="menuitem" class="nav-cta btn btn-primary" href="#contact">Skrá mig í þjálfun</a>
           </div>
         </nav>
         <div class="hero-grid">
@@ -52,7 +55,7 @@
               <h1 class="title">Coach Kolla</h1>
               <p class="subtitle">Sterkari, hraustari, sjálfsöruggari – byrjum í dag.</p>
               <div class="buttons">
-                <a href="#contact" class="btn btn-primary">Skrá mig í fjarþjálfun</a>
+                <a href="#contact" class="btn btn-primary">Skrá mig í þjálfun</a>
                 <a href="#programs" class="btn btn-outline">Sjá prógrömm</a>
               </div>
             </div>
@@ -74,11 +77,6 @@
               <p class="lead">Árangur kemur ekki á einni nóttu.</p>
               <p class="sub">Til þess þarf aga, staðfestu og vilja. Vilt þú hámarka þinn árangur?</p>
               <p>Flestir gefast upp því að þeir sjá ekki árangur nógu fljótt. Árangur felst í vinnunni sem þú ert tilbúin(n) að leggja á þig – að mæta dag eftir dag, að velja réttu næringuna og að velja þig, alla daga. Áður en þú veist af fer þér að líða betur – andlega og líkamlega.</p>
-              <ul class="why-points" aria-label="Kjarni">
-                <li>Agi</li>
-                <li>Staðfesta</li>
-                <li>Vilji</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -103,7 +101,6 @@
           </div>
           <div class="about-content">
             <h2>Um mig</h2>
-            <h3>Aðeins um mig</h3>
             <p>Í janúar 2024 ákvað ég að setja sjálfa mig í 1. sæti. Ég fór í fjarþjálfun, borðaði rétt og mætti daglega í ræktina. Árangi kom hratt – kílóin flugu og sentímetrarnir hurfu.</p>
             <p>Í apríl 2025 keppti ég í Modelfitness á Akureyri og varð Íslandsmeistari 35+. Mánuði síðar fór ég út til Spánar og kom heim með gull og brons. Í júní 2025 lauk ég námi í einkaþjálfun.</p>
             <p>Í dag líður mér betur en nokkru sinni – andlega og líkamlega. Ef ég, 38 ára einstæð móðir í þremur vinnum, gat þetta… þá getur þú það líka. Draumur minn er að hjálpa fólki að finna sig aftur, gleðina, hamingjuna og ástríðuna. Betra form er bara plús.</p>
@@ -153,13 +150,7 @@
               </div>
             </article>
 
-            <article class="program-card program-expand" tabindex="0">
-              <div class="program-media"><img src="about.png" alt="Keppnisundirbúningur – markviss nálgun" loading="lazy" decoding="async"></div>
-              <div class="program-head"><h3>Keppnisundirbúningur</h3><p class="more-hint">Lesa meira</p></div>
-              <div class="program-body">
-                <p>Markviss tímalína, næring og pósaæfingar eftir þínum flokk. Skýr áætlun og nákvæm fínpússun fram að sviði.</p>
-              </div>
-            </article>
+            
           </div>
 
           <p class="pricing-hint">Verð fer eftir markmiðum og þjónustustigi. Sendu mér skilaboð og fáðu skýra áætlun.</p>
@@ -232,11 +223,11 @@
           <ul class="contact-info" aria-label="Hafa samband upplýsingar">
             <li>
               <i class="fa-solid fa-phone" aria-hidden="true"></i>
-              <a href="tel:+3540000000" aria-label="Hringja">Sími</a>
+              <a href="tel:+3548676051" aria-label="Hringja">867-6051</a>
             </li>
             <li>
               <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-              <a href="mailto:coach@kolla.is" aria-label="Senda tölvupóst">Netfang</a>
+              <a href="mailto:coachkolla@outlook.com" aria-label="Senda tölvupóst">coachkolla@outlook.com</a>
             </li>
             <li>
               <i class="fa-brands fa-instagram" aria-hidden="true"></i>
@@ -294,18 +285,36 @@
     </a>
 
     <!-- Sticky Mobile CTA -->
-    <a class="mobile-cta" href="#contact" aria-label="Skrá mig í fjarþjálfun (festa)">
-      Skrá mig í fjarþjálfun
+    <a class="mobile-cta" href="#contact" aria-label="Skrá mig í þjálfun (festa)">
+      Skrá mig í þjálfun
     </a>
 
     <!-- Footer -->
     <footer class="site-footer" role="contentinfo">
+      <div class="footer-cta">
+        <div class="container cta-inner">
+          <div class="cta-text">
+            <strong>Tilbúin(n) að byrja?</strong>
+            <span>Byrjum í dag – meiri líðan, meiri styrkur.</span>
+          </div>
+          <div class="cta-actions">
+            <a class="btn btn-primary" href="#contact">Skrá mig í þjálfun</a>
+            <a class="cta-phone" href="tel:+3548676051"><i class="fa-solid fa-phone" aria-hidden="true"></i> 867-6051</a>
+          </div>
+        </div>
+      </div>
+
       <div class="container footer-grid">
         <div class="footer-brand">
           <img src="logo.png" alt="Merki Coach Kolla" width="40" height="40">
-          <p>Ég hjálpa þér að finna styrkinn, gleðina og sjálfstraustið – skref fyrir skref.</p>
+          <div>
+            <p>Ég hjálpa þér að finna styrkinn, gleðina og sjálfstraustið – skref fyrir skref.</p>
+            <div class="footer-social" aria-label="Samfélagsmiðlar">
+              <a href="https://www.instagram.com/coach_kolla/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+            </div>
+          </div>
         </div>
-        <nav class="footer-col" aria-label="Flýtitenglar">
+        <nav class="footer-col" aria-label="Vefleiðsögn">
           <h4>Vefleiðsögn</h4>
           <a href="#home">Heim</a>
           <a href="#about">Um mig</a>
@@ -313,14 +322,16 @@
           <a href="#faq">FAQ</a>
           <a href="#contact">Hafa samband</a>
         </nav>
+        <nav class="footer-col" aria-label="Þjónusta">
+          <h4>Þjónusta</h4>
+          <a href="#programs">Fjarþjálfun</a>
+          <a href="#programs">Einkaþjálfun</a>
+          <a href="#programs">Hópar & smáhópar</a>
+        </nav>
         <div class="footer-col" aria-label="Hafa samband">
           <h4>Hafa samband</h4>
-          <a href="tel:+3540000000">Sími</a>
-          <a href="mailto:coach@kolla.is">Netfang</a>
-        </div>
-        <div class="footer-col" aria-label="Samfélagsmiðlar">
-          <h4>Samfélag</h4>
-          <a href="https://www.instagram.com/coach_kolla/" target="_blank" rel="noopener">Instagram</a>
+          <a href="tel:+3548676051"><i class="fa-solid fa-phone" aria-hidden="true"></i> 867-6051</a>
+          <a href="mailto:coachkolla@outlook.com"><i class="fa-solid fa-envelope" aria-hidden="true"></i> coachkolla@outlook.com</a>
         </div>
       </div>
       <div class="footer-bottom">

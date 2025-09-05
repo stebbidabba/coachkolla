@@ -4,6 +4,32 @@
 (function () {
   const qs = (sel, ctx = document) => ctx.querySelector(sel);
   const qsa = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+  const storageKey = 'coachkolla-theme';
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  function applyTheme(theme) {
+    const body = document.body;
+    body.classList.remove('theme-dark', 'theme-light');
+    if (theme === 'dark') body.classList.add('theme-dark');
+    else body.classList.add('theme-light');
+    try { localStorage.setItem(storageKey, theme); } catch (_) {}
+    const btn = qs('.theme-toggle');
+    if (btn) {
+      const dark = theme === 'dark';
+      btn.setAttribute('aria-pressed', String(dark));
+      btn.innerHTML = dark ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>' : '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
+    }
+  }
+
+  // Initialize theme
+  (function initTheme() {
+    let theme = 'dark';
+    try {
+      const saved = localStorage.getItem(storageKey);
+      if (saved === 'light' || saved === 'dark') theme = saved;
+      else theme = prefersDark ? 'dark' : 'light';
+    } catch (_) {}
+    applyTheme(theme);
+  })();
   // Load design JSON if present
   try {
     fetch('assets/design.json')
@@ -66,6 +92,15 @@
     });
   });
 
+  // Theme toggle handler
+  const themeBtn = qs('.theme-toggle');
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      const isDark = document.body.classList.contains('theme-dark');
+      applyTheme(isDark ? 'light' : 'dark');
+    });
+  }
+
   // Smooth scroll for local anchors
   qsa('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -85,7 +120,7 @@
   });
 
   // Scrollspy: highlight nav link for visible section
-  const sections = ['home', 'about', 'programs', 'contact']
+  const sections = ['home', 'about', 'programs', 'faq', 'contact']
     .map((id) => document.getElementById(id))
     .filter(Boolean);
   const links = qsa('.nav-link');
@@ -229,15 +264,24 @@
   }
 
   // FAQ accordion
+  // Ensure hidden attributes don't block animation; we'll control via CSS
+  qsa('.faq-a[hidden]').forEach((el) => el.removeAttribute('hidden'));
   qsa('.faq-q').forEach((btn) => {
     btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
       const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      const content = btn.parentElement?.querySelector('.faq-a');
-      if (content instanceof HTMLElement) {
-        if (expanded) content.setAttribute('hidden', '');
-        else content.removeAttribute('hidden');
+      // If opening this one, close others
+      if (!expanded) {
+        qsa('.faq-item.open').forEach((openItem) => {
+          if (openItem !== item) {
+            openItem.classList.remove('open');
+            const openBtn = openItem.querySelector('.faq-q');
+            if (openBtn) openBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
       }
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if (item) item.classList.toggle('open', !expanded);
     });
   });
 
@@ -248,10 +292,16 @@
     // start collapsed
     card.classList.remove('open');
     function toggle(exclusive = true) {
+      const isOpen = card.classList.contains('open');
+      if (isOpen) {
+        // clicking again closes this card
+        card.classList.remove('open');
+        return;
+      }
       if (exclusive) {
         qsa('.program-expand.open').forEach((c) => c.classList.remove('open'));
       }
-      card.classList.toggle('open');
+      card.classList.add('open');
     }
     card.addEventListener('click', () => toggle(true));
     card.addEventListener('keydown', (e) => {
